@@ -24,12 +24,26 @@ function App() {
     },
   ]);
 
+  function onTaskClick(taskId) {
+    const newTask = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        };
+      }
+      return task;
+    });
+
+    setTasks(newTask);
+  }
+
   return (
     <div className="w-screen h-screen bg-[#8084ED] flex justify-center p-6">
       <div className="w-125">
         <h1 className="text-3xl text-slate-100 font-bold text-center ">Gerenciador de Tarefas</h1>
         <AddTasks />
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onTaskClick={onTaskClick} />
       </div>
     </div>
   );
