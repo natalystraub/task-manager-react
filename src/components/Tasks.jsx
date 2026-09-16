@@ -1,4 +1,11 @@
 import { ChevronsRightIcon, TrashIcon } from 'lucide-react';
+import PropTypes from 'prop-types';
+
+Tasks.propTypes = {
+  tasks: PropTypes.array.isRequired,
+  onTaskClick: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
+};
 
 function Tasks({ tasks, onTaskClick, deleteTask }) {
   return (

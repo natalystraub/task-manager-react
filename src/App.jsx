@@ -24,6 +24,8 @@ function App() {
     },
   ]);
 
+  console.log(tasks);
+
   function onTaskClick(taskId) {
     const newTask = tasks.map((task) => {
       if (task.id === taskId) {
@@ -44,11 +46,22 @@ function App() {
     setTasks(removeTask);
   }
 
+  function addTask(taskTitle, taskDescription) {
+    const newTask = {
+      id: tasks.length + 1,
+      title: taskTitle,
+      description: taskDescription,
+      isCompleted: false,
+    };
+
+    setTasks([...tasks, newTask]);
+  }
+
   return (
     <div className="w-screen h-screen bg-[#8084ED] flex justify-center p-6">
       <div className="w-125 space-y-4">
         <h1 className="text-3xl text-slate-100 font-bold text-center ">Gerenciador de Tarefas</h1>
-        <AddTasks />
+        <AddTasks addTask={addTask} />
         <Tasks tasks={tasks} onTaskClick={onTaskClick} deleteTask={deleteTask} />
       </div>
     </div>
