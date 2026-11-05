@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronLeftIcon } from 'lucide-react';
+import { ChevronLeftIcon } from 'lucide-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function TaskPages() {
